@@ -16,7 +16,7 @@ var cli = meow({
 		'  Twitter: sindresorhus',
 		'  GitHub: sindresorhus',
 		'  Freenode: sindresorhus'
-	].join('\n')
+	]
 });
 
 var username = cli.input[0];
@@ -38,7 +38,7 @@ npmUser(username, function (err, user) {
 		if (user[key]) {
 			ret.push(prefix + ': ' + user[key]);
 		}
-	}
+	};
 
 	createRow('Name', 'name');
 	createRow('Email', 'email');
