@@ -1,6 +1,7 @@
 'use strict';
 var got = require('got');
 var cheerio = require('cheerio');
+var Promise = require('pinkie-promise');
 
 function unobfuscateEmail(str) {
 	return str.split('%')
@@ -11,33 +12,29 @@ function unobfuscateEmail(str) {
 		.join('');
 }
 
-module.exports = function (username, cb) {
+module.exports = function (username) {
 	if (typeof username !== 'string') {
-		throw new Error('username required');
+		return Promise.reject(new Error('username required'));
 	}
 
 	var url = 'https://www.npmjs.com/~' + username;
 
-	got(url, function (err, data) {
-		if (err && err.statusCode === 404) {
-			cb(new Error('User doesn\'t exist'));
-			return;
-		}
+	return got(url).then(function (res) {
+		var $ = cheerio.load(res.body);
 
-		if (err) {
-			cb(err);
-			return;
-		}
-
-		var $ = cheerio.load(data);
-
-		cb(null, {
+		return {
 			name: $('.fullname').text() || null,
 			email: unobfuscateEmail($('.email [data-email]').attr('data-email')) || null,
 			homepage: $('.homepage a').attr('href') || null,
 			github: $('.github a').text().slice(1) || null,
 			twitter: $('.twitter a').text().slice(1) || null,
 			freenode: $('.freenode a').text() || null
-		});
+		};
+	}).catch(function (err) {
+		if (err.statusCode === 404) {
+			err.message = 'User doesn\'t exist';
+		}
+
+		throw err;
 	});
 };
