@@ -1,17 +1,14 @@
-'use strict';
-var test = require('ava');
-var npmUser = require('./');
+import test from 'ava';
+import fn from './';
 
-test(function (t) {
-	t.plan(6);
+test(async t => {
+	const user = await fn('sindresorhus');
 
-	npmUser('sindresorhus').then(function (user) {
-		console.log(user);
-		t.assert(user.name === 'Sindre Sorhus');
-		t.assert(user.email === 'sindresorhus@gmail.com');
-		t.assert(user.homepage === 'http://sindresorhus.com');
-		t.assert(user.github === 'sindresorhus');
-		t.assert(user.twitter === 'sindresorhus');
-		t.assert(user.freenode === 'sindresorhus');
-	});
+	console.log(user);
+	t.is(user.name, 'Sindre Sorhus');
+	t.is(user.email, 'sindresorhus@gmail.com');
+	t.is(user.homepage, 'http://sindresorhus.com');
+	t.is(user.github, 'sindresorhus');
+	t.is(user.twitter, 'sindresorhus');
+	t.is(user.freenode, 'sindresorhus');
 });
