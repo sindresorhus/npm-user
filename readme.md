@@ -37,31 +37,9 @@ npmUser('sindresorhus').then(user => {
 *Values will be `null` if they're not set in the npm profile.*
 
 
-## CLI
-
-```
-$ npm install --global npm-user
-```
-
-```
-$ npm-user --help
-
-  Usage
-    $ npm-user <username>
-
-  Example
-    $ npm-user sindresorhus
-    Name: Sindre Sorhus
-    Email: sindresorhus@gmail.com
-    Homepage: http://sindresorhus.com
-    Twitter: sindresorhus
-    GitHub: sindresorhus
-    Freenode: sindresorhus
-```
-
-
 ## Related
 
+- [npm-user-cli](https://github.com/sindresorhus/npm-user-cli) - CLI for this module
 - [npm-email](https://github.com/sindresorhus/npm-email) - Get the email of a npm user
 - [npm-keyword](https://github.com/sindresorhus/npm-keyword) - Get a list of npm packages with a certain keyword
 - [package-json](https://github.com/sindresorhus/package-json) - Get the package.json of a package from the npm registry
