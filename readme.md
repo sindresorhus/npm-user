@@ -17,9 +17,9 @@ $ npm install --save npm-user
 ## Usage
 
 ```js
-var npmUser = require('npm-user');
+const npmUser = require('npm-user');
 
-npmUser('sindresorhus', function (err, user) {
+npmUser('sindresorhus').then(user => {
 	console.log(user);
 	/*
 	{

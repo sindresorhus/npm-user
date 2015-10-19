@@ -26,12 +26,7 @@ if (!username) {
 	process.exit(1);
 }
 
-npmUser(username, function (err, user) {
-	if (err) {
-		console.error(err.message);
-		process.exit(1);
-	}
-
+npmUser(username).then(function (user) {
 	var ret = [];
 
 	var createRow = function (prefix, key) {
