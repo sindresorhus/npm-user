@@ -43,6 +43,7 @@ npmUser('sindresorhus').then(user => {
 - [npm-email](https://github.com/sindresorhus/npm-email) - Get the email of a npm user
 - [npm-keyword](https://github.com/sindresorhus/npm-keyword) - Get a list of npm packages with a certain keyword
 - [package-json](https://github.com/sindresorhus/package-json) - Get the package.json of a package from the npm registry
+- [npm-user-packages](https://github.com/kevva/npm-user-packages) - Get packages by a npm user
 
 
 ## License
