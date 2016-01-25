@@ -1,7 +1,7 @@
 {
   "name": "npm-user",
   "version": "2.1.0",
-  "description": "Get user info of a npm user",
+  "description": "Get user info of an npm user",
   "license": "MIT",
   "repository": "sindresorhus/npm-user",
   "author": {
