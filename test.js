@@ -4,6 +4,7 @@ import fn from './';
 test(async t => {
 	const user = await fn('sindresorhus');
 
+	t.is(user.npm, 'sindresorhus');
 	t.is(user.name, 'Sindre Sorhus');
 	t.is(user.email, 'sindresorhus@gmail.com');
 	t.is(user.homepage, 'http://sindresorhus.com');

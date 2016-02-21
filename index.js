@@ -23,6 +23,7 @@ module.exports = function (username) {
 		var $ = cheerio.load(res.body);
 
 		return {
+			npm: username,
 			name: $('.fullname').text() || null,
 			email: unobfuscateEmail($('.email [data-email]').attr('data-email')) || null,
 			homepage: $('.homepage a').attr('href') || null,

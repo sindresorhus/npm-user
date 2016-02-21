@@ -23,6 +23,7 @@ npmUser('sindresorhus').then(user => {
 	console.log(user);
 	/*
 	{
+		npm: 'sindresorhus',
 		name: 'Sindre Sorhus',
 		email: 'sindresorhus@gmail.com',
 		homepage: 'http://sindresorhus.com',
