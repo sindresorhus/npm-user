@@ -11,3 +11,10 @@ test(async t => {
 	t.is(user.twitter, 'sindresorhus');
 	t.is(user.freenode, 'sindresorhus');
 });
+
+test(async t => {
+	const user = await fn('sebmck');
+
+	t.true(user.packages.indexOf('babel-core') >= 0);
+	t.false(user.packages.indexOf('bower') >= 0);
+});

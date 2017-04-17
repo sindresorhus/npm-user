@@ -28,7 +28,10 @@ module.exports = function (username) {
 			homepage: $('.homepage a').attr('href') || null,
 			github: $('.github a').text().slice(1) || null,
 			twitter: $('.twitter a').text().slice(1) || null,
-			freenode: $('.freenode a').text() || null
+			freenode: $('.freenode a').text() || null,
+			packages: $('ul.collaborated-packages li a').map(function () {
+				return $(this).text();
+			}).toArray()
 		};
 	}).catch(function (err) {
 		if (err.statusCode === 404) {
