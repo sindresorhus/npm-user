@@ -24,6 +24,7 @@ npmUser('sindresorhus').then(user => {
 	/*
 	{
 		name: 'Sindre Sorhus',
+		avatar: 'https://s.gravatar.com/avatar/d36a92237c75c5337c17b60d90686bf9?size=496&default=retro',
 		email: 'sindresorhus@gmail.com',
 		homepage: 'http://sindresorhus.com',
 		github: 'sindresorhus',
