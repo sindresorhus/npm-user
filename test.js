@@ -1,10 +1,11 @@
 import test from 'ava';
-import fn from './';
+import m from '.';
 
-test('should scrape ~sindresorhus', async t => {
-	const user = await fn('sindresorhus');
-
+test('user: sindresorhus', async t => {
+	const user = await m('sindresorhus');
+	console.log(user);
 	t.is(user.name, 'Sindre Sorhus');
+	t.regex(user.avatar, /gravatar\.com\/avatar/);
 	t.is(user.email, 'sindresorhus@gmail.com');
 	t.is(user.homepage, 'https://sindresorhus.com');
 	t.is(user.github, 'sindresorhus');
@@ -12,10 +13,10 @@ test('should scrape ~sindresorhus', async t => {
 	t.is(user.freenode, null);
 });
 
-test('should scrape ~npm', async t => {
-	const user = await fn('npm');
-
+test('user: npm', async t => {
+	const user = await m('npm');
 	t.is(user.name, 'No Problem, Meatbag');
+	t.regex(user.avatar, /gravatar\.com\/avatar/);
 	t.is(user.email, 'npm@npmjs.com');
 	t.is(user.homepage, 'https://npmjs.org');
 	t.is(user.github, 'npm');

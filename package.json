@@ -1,42 +1,41 @@
 {
-  "name": "npm-user",
-  "version": "2.1.0",
-  "description": "Get user info of an npm user",
-  "license": "MIT",
-  "repository": "sindresorhus/npm-user",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "xo && ava"
-  },
-  "files": [
-    "index.js"
-  ],
-  "keywords": [
-    "npm",
-    "user",
-    "username",
-    "homepage",
-    "email",
-    "get",
-    "website",
-    "scrape",
-    "info",
-    "profile"
-  ],
-  "dependencies": {
-    "cheerio": "^0.19.0",
-    "got": "^5.0.0",
-    "pinkie-promise": "^2.0.0"
-  },
-  "devDependencies": {
-    "ava": "*",
-    "xo": "*"
-  }
+	"name": "npm-user",
+	"version": "2.1.0",
+	"description": "Get user info of an npm user",
+	"license": "MIT",
+	"repository": "sindresorhus/npm-user",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"engines": {
+		"node": ">=4"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"npm",
+		"user",
+		"username",
+		"homepage",
+		"email",
+		"get",
+		"website",
+		"scrape",
+		"info",
+		"profile"
+	],
+	"dependencies": {
+		"cheerio": "^0.22.0",
+		"got": "^7.1.0"
+	},
+	"devDependencies": {
+		"ava": "*",
+		"xo": "*"
+	}
 }

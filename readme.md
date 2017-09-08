@@ -10,7 +10,7 @@ Since npm has no API for this we're forced to scrape the [profile page](https://
 ## Install
 
 ```
-$ npm install --save npm-user
+$ npm install npm-user
 ```
 
 
@@ -24,12 +24,12 @@ npmUser('sindresorhus').then(user => {
 	/*
 	{
 		name: 'Sindre Sorhus',
-		avatar: 'https://s.gravatar.com/avatar/d36a92237c75c5337c17b60d90686bf9?size=496&default=retro',
+		avatar: 'https://gravatar.com/avatar/d36a92237c75c5337c17b60d90686bf9?size=496',
 		email: 'sindresorhus@gmail.com',
-		homepage: 'http://sindresorhus.com',
+		homepage: 'https://sindresorhus.com',
 		github: 'sindresorhus',
 		twitter: 'sindresorhus',
-		freenode: 'sindresorhus'
+		freenode: null
 	}
 	*/
 });
@@ -49,4 +49,4 @@ npmUser('sindresorhus').then(user => {
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)

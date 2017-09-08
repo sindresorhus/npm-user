@@ -1,29 +1,31 @@
+'use strict';
 const got = require('got');
 const cheerio = require('cheerio');
-const Promise = require('pinkie-promise');
 
 function unobfuscateEmail(str) {
-	return str.split('%')
+	return str
+		.split('%')
 		.slice(1)
-		.map(el => {
-			return String.fromCharCode(parseInt(el, 16));
-		})
+		.map(x => String.fromCharCode(parseInt(x, 16)))
 		.join('');
 }
 
-module.exports = function (username) {
+module.exports = username => {
 	if (typeof username !== 'string') {
-		return Promise.reject(new Error('username required'));
+		return Promise.reject(new Error('Username required'));
 	}
 
-	const url = 'https://www.npmjs.com/~' + username;
+	const url = `https://www.npmjs.com/~${username}`;
 
 	return got(url).then(res => {
 		const $ = cheerio.load(res.body);
 
+		let avatar = $('.avatar img').attr('src');
+		avatar = avatar ? avatar.replace(/^(https:\/\/)s\./, '$1').replace(/&default=retro$/, '') : null;
+
 		return {
 			name: $('.fullname').text() || null,
-			avatar: $('.avatar img').attr('src') || null,
+			avatar,
 			email: unobfuscateEmail($('.email [data-email]').attr('data-email')) || null,
 			homepage: $('.homepage a').attr('href') || null,
 			github: $('.github a').text().slice(1) || null,
