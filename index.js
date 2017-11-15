@@ -18,9 +18,6 @@ module.exports = username => {
 		let avatar = $('.avatar img').attr('src');
 		avatar = avatar ? avatar.replace(/^(https:\/\/)s\./, '$1').replace(/&default=retro$/, '') : null;
 
-        console.log(res);
-        console.log($('.email [data-email]').attr('data-email'));
-
         return {
 			name: $('.fullname').text() || null,
 			avatar,
