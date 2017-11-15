@@ -2,14 +2,6 @@
 const got = require('got');
 const cheerio = require('cheerio');
 
-function unobfuscateEmail(str) {
-	return str
-		.split('%')
-		.slice(1)
-		.map(x => String.fromCharCode(parseInt(x, 16)))
-		.join('');
-}
-
 module.exports = username => {
 	if (typeof username !== 'string') {
 		return Promise.reject(new Error('Username required'));
@@ -26,7 +18,6 @@ module.exports = username => {
 		return {
 			name: $('.fullname').text() || null,
 			avatar,
-			email: unobfuscateEmail($('.email [data-email]').attr('data-email')) || null,
 			homepage: $('.homepage a').attr('href') || null,
 			github: $('.github a').text().slice(1) || null,
 			twitter: $('.twitter a').text().slice(1) || null,
