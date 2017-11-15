@@ -10,7 +10,7 @@ module.exports = username => {
 
 	const url = `https://www.npmjs.com/~${username}`;
 
-	return Promise.all([got(url), npmEmail(username)]).then((values) => {
+	return Promise.all([got(url), npmEmail(username)]).then(values => {
 		const res = values[0];
 		const email = values[1];
 		const $ = cheerio.load(res.body);
