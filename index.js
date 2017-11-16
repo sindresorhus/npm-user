@@ -1,14 +1,7 @@
 'use strict';
 const got = require('got');
 const cheerio = require('cheerio');
-
-function unobfuscateEmail(str) {
-	return str
-		.split('%')
-		.slice(1)
-		.map(x => String.fromCharCode(parseInt(x, 16)))
-		.join('');
-}
+const npmEmail = require('npm-email');
 
 module.exports = username => {
 	if (typeof username !== 'string') {
@@ -17,7 +10,9 @@ module.exports = username => {
 
 	const url = `https://www.npmjs.com/~${username}`;
 
-	return got(url).then(res => {
+	return Promise.all([got(url), npmEmail(username)]).then(values => {
+		const res = values[0];
+		const email = values[1];
 		const $ = cheerio.load(res.body);
 
 		let avatar = $('.avatar img').attr('src');
@@ -26,7 +21,7 @@ module.exports = username => {
 		return {
 			name: $('.fullname').text() || null,
 			avatar,
-			email: unobfuscateEmail($('.email [data-email]').attr('data-email')) || null,
+			email: email || null,
 			homepage: $('.homepage a').attr('href') || null,
 			github: $('.github a').text().slice(1) || null,
 			twitter: $('.twitter a').text().slice(1) || null,

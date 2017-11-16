@@ -32,7 +32,8 @@
 	],
 	"dependencies": {
 		"cheerio": "^0.22.0",
-		"got": "^7.1.0"
+		"got": "^7.1.0",
+		"npm-email": "^2.0.0"
 	},
 	"devDependencies": {
 		"ava": "*",
