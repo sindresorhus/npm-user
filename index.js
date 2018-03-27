@@ -15,17 +15,17 @@ module.exports = username => {
 		const email = values[1];
 		const $ = cheerio.load(res.body);
 
-		let avatar = $('.avatar img').attr('src');
+		let avatar = $('img[src^="https://s.gravatar.com"]').attr('src');
 		avatar = avatar ? avatar.replace(/^(https:\/\/)s\./, '$1').replace(/&default=retro$/, '') : null;
 
+		const $sidebar = $('[class^="profile__sidebar"]');
+
 		return {
-			name: $('.fullname').text() || null,
+			name: $sidebar.find('.black-50.mv2').text() || null,
 			avatar,
 			email: email || null,
-			homepage: $('.homepage a').attr('href') || null,
-			github: $('.github a').text().slice(1) || null,
-			twitter: $('.twitter a').text().slice(1) || null,
-			freenode: $('.freenode a').text() || null
+			github: $sidebar.find('a[href^="https://github.com/"]').text().slice(1) || null,
+			twitter: $sidebar.find('a[href^="https://twitter.com/"]').text().slice(1) || null
 		};
 	}).catch(err => {
 		if (err.statusCode === 404) {
