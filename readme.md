@@ -4,7 +4,7 @@
 
 Since npm has no API for this we're forced to scrape the [profile page](https://www.npmjs.com/~sindresorhus).
 
-*Use the faster [npm-email](https://github.com/sindresorhus/npm-email) if you only need the email.*
+*Use the faster [npm-email](https://github.com/sindresorhus/npm-email) package if you only need the email.*
 
 
 ## Install
@@ -19,8 +19,8 @@ $ npm install npm-user
 ```js
 const npmUser = require('npm-user');
 
-npmUser('sindresorhus').then(user => {
-	console.log(user);
+(async () => {
+	console.log(await npmUser('sindresorhus'));
 	/*
 	{
 		name: 'Sindre Sorhus',
@@ -30,7 +30,7 @@ npmUser('sindresorhus').then(user => {
 		twitter: 'sindresorhus'
 	}
 	*/
-});
+})()
 ```
 
 *Values will be `null` if they're not set in the npm profile.*

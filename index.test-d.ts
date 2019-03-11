@@ -1,12 +1,12 @@
 import {expectType} from 'tsd-check';
-import npmUser, {UserData} from '.';
+import npmUser, {UserInfo} from '.';
 
-const userDataPromise = npmUser('sindresorhus');
-expectType<Promise<UserData>>(userDataPromise);
+const userInfoPromise = npmUser('sindresorhus');
+expectType<Promise<UserInfo>>(userInfoPromise);
 
-const userData = await userDataPromise;
-expectType<string | null>(userData.name);
-expectType<string | null>(userData.avatar);
-expectType<string | null>(userData.email);
-expectType<string | null>(userData.github);
-expectType<string | null>(userData.twitter);
+const userInfo = await userInfoPromise;
+expectType<string | null>(userInfo.name);
+expectType<string | null>(userInfo.avatar);
+expectType<string | null>(userInfo.email);
+expectType<string | null>(userInfo.github);
+expectType<string | null>(userInfo.twitter);

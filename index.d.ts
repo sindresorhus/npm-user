@@ -1,4 +1,4 @@
-export interface UserData {
+export interface UserInfo {
 	/**
 	 * User's name.
 	 */
@@ -20,7 +20,7 @@ export interface UserData {
 	github: string | null;
 
 	/**
-	 * User's associated twitter account.
+	 * User's associated Twitter account.
 	 */
 	twitter: string | null;
 }
@@ -30,4 +30,4 @@ export interface UserData {
  *
  * @param name - User's username on npm.
  */
-export default function npmUser(name: string): Promise<UserData>;
+export default function npmUser(name: string): Promise<UserInfo>;

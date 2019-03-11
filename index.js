@@ -5,16 +5,13 @@ const npmEmail = require('npm-email');
 
 const npmUser = async username => {
 	if (typeof username !== 'string') {
-		return Promise.reject(new Error('Username required'));
+		throw new TypeError('Username required');
 	}
 
 	const url = `https://www.npmjs.com/~${username}`;
 	try {
-		const values = await Promise.all([got(url), npmEmail(username)]);
-
-		const res = values[0];
-		const email = values[1];
-		const $ = cheerio.load(res.body);
+		const [profile, email] = await Promise.all([got(url), npmEmail(username)]);
+		const $ = cheerio.load(profile.body);
 
 		let avatar = $('img[src^="https://s.gravatar.com"]').attr('src');
 		avatar = avatar ? avatar.replace(/^(https:\/\/)s\./, '$1').replace(/&default=retro$/, '') : null;
