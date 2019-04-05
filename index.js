@@ -16,7 +16,7 @@ const npmUser = async username => {
 		let avatar = $('img[src^="https://s.gravatar.com"]').attr('src');
 		avatar = avatar ? avatar.replace(/^(https:\/\/)s\./, '$1').replace(/&default=retro$/, '') : null;
 
-		const $sidebar = $('[class^="profile__sidebar"]');
+		const $sidebar = $('[class^="_1XtnB"]');
 
 		return {
 			name: $sidebar.find('.black-50.mv2').text() || null,
