@@ -1,5 +1,6 @@
-import {expectType} from 'tsd-check';
-import npmUser, {UserInfo} from '.';
+import {expectType} from 'tsd';
+import npmUser = require('.');
+import {UserInfo} from '.';
 
 const userInfoPromise = npmUser('sindresorhus');
 expectType<Promise<UserInfo>>(userInfoPromise);

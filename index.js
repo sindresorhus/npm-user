@@ -35,4 +35,5 @@ const npmUser = async username => {
 };
 
 module.exports = npmUser;
+// TODO: Remove this for the next major release
 module.exports.default = npmUser;

@@ -30,7 +30,7 @@ const npmUser = require('npm-user');
 		twitter: 'sindresorhus'
 	}
 	*/
-})()
+})();
 ```
 
 *Values will be `null` if they're not set in the npm profile.*
