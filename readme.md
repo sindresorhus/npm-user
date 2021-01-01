@@ -1,4 +1,4 @@
-# npm-user [![Build Status](https://travis-ci.org/sindresorhus/npm-user.svg?branch=master)](https://travis-ci.org/sindresorhus/npm-user)
+# npm-user
 
 > Get user info of an npm user
 
