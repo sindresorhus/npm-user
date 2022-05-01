@@ -1,60 +1,47 @@
-declare namespace npmUser {
-	interface UserInfo {
-		/**
-		User's name.
-		*/
-		name: string | null;
+export interface UserInfo {
+	/**
+	The user's name.
+	*/
+	name: string | undefined;
 
-		/**
-		URL to user's avatar.
-		*/
-		avatar: string | null;
+	/**
+	The URL to user's avatar.
+	*/
+	avatar: string | undefined;
 
-		/**
-		User's email.
-		*/
-		email: string | null;
+	/**
+	The user's email.
+	*/
+	email: string | undefined;
 
-		/**
-		User's associated GitHub account.
-		*/
-		github: string | null;
+	/**
+	The user's associated GitHub account.
+	*/
+	github: string | undefined;
 
-		/**
-		User's associated Twitter account.
-		*/
-		twitter: string | null;
-	}
+	/**
+	The user's associated Twitter account.
+	*/
+	twitter: string | undefined;
 }
 
-declare const npmUser: {
-	/**
-	Get user info of an npm user.
+/**
+Get user info of an npm user.
 
-	@param name - User's username on npm.
+@param name - The user's username on npm.
 
-	@example
-	```
-	import npmUser = require('npm-user');
+@example
+```
+import npmUser from 'npm-user';
 
-	(async () => {
-		console.log(await npmUser('sindresorhus'));
-		// {
-		// 	name: 'Sindre Sorhus',
-		// 	avatar: 'https://gravatar.com/avatar/d36a92237c75c5337c17b60d90686bf9?size=496',
-		// 	email: 'sindresorhus@gmail.com',
-		// 	github: 'sindresorhus',
-		// 	twitter: 'sindresorhus'
-		// }
-	})();
-	```
-	*/
-	(name: string): Promise<npmUser.UserInfo>;
-
-	// TODO: Remove this for the next major release, refactor the whole definition to:
-	// declare function npmUser(name: string): Promise<npmUser.UserInfo>;
-	// export = npmUser;
-	default: typeof npmUser;
-};
-
-export = npmUser;
+console.log(await npmUser('sindresorhus'));
+// {
+// 	name: 'Sindre Sorhus',
+// 	avatar: 'https://gravatar.com/avatar/d36a92237c75c5337c17b60d90686bf9?size=496',
+// 	email: 'sindresorhus@gmail.com',
+// 	github: 'sindresorhus',
+// 	twitter: 'sindresorhus'
+// }
+```
+*/
+export default function npmUser(name: string): Promise<UserInfo>;
