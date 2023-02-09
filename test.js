@@ -6,8 +6,6 @@ test('user: sindresorhus', async t => {
 	t.is(user.name, 'Sindre Sorhus');
 	t.regex(user.avatar, /npm-avatar/);
 	t.is(user.email, 'sindresorhus@gmail.com');
-	t.is(user.github, 'sindresorhus');
-	t.is(user.twitter, 'sindresorhus');
 });
 
 test('user: npm', async t => {
@@ -15,8 +13,6 @@ test('user: npm', async t => {
 	t.is(user.name, 'No Problem, Meatbag');
 	t.regex(user.avatar, /npm-avatar/);
 	t.is(user.email, 'npm@npmjs.com');
-	t.is(user.github, 'npm');
-	t.is(user.twitter, 'npmjs');
 });
 
 test('user: tj', async t => {

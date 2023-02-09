@@ -1,5 +1,5 @@
 import {expectType} from 'tsd';
-import npmUser, {UserInfo} from './index.js';
+import npmUser, {type UserInfo} from './index.js';
 
 const userInfoPromise = npmUser('sindresorhus');
 expectType<Promise<UserInfo>>(userInfoPromise);
