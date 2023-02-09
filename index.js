@@ -16,7 +16,7 @@ export default async function npmUser(username) {
 		const $sidebar = $('[class^="_73a8e6f0"]');
 
 		return {
-			name: $sidebar.find('.black-50.mv2').text() || undefined,
+			name: $sidebar.find('.eaac77a6.mv2').text() || undefined,
 			avatar,
 			email,
 			github: $sidebar.find('a[href^="https://github.com/"]').text().slice(1) || undefined,
