@@ -1,6 +1,8 @@
 import test from 'ava';
 import npmUser from './index.js';
 
+const avatarRegex = /^https:\/\/www\.npmjs\.com\/npm-avatar\//m;
+
 test('user: sindresorhus', async t => {
 	const user = await npmUser('sindresorhus');
 
@@ -11,7 +13,7 @@ test('user: sindresorhus', async t => {
 		twitter: 'sindresorhus',
 	});
 
-	t.regex(user.avatar, /npm-avatar/);
+	t.regex(user.avatar, avatarRegex);
 });
 
 test('user: npm', async t => {
@@ -22,7 +24,7 @@ test('user: npm', async t => {
 		email: 'npm@npmjs.com',
 	});
 
-	t.regex(user.avatar, /npm-avatar/);
+	t.regex(user.avatar, avatarRegex);
 });
 
 test('user: tj', async t => {
@@ -35,5 +37,5 @@ test('user: tj', async t => {
 		twitter: undefined,
 	});
 
-	t.regex(user.avatar, /npm-avatar/);
+	t.regex(user.avatar, avatarRegex);
 });

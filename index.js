@@ -1,5 +1,5 @@
 import ky from 'ky';
-import {load} from 'cheerio';
+import {load as cheerioLoad} from 'cheerio';
 import npmEmail from 'npm-email';
 
 export default async function npmUser(username) {
@@ -10,9 +10,11 @@ export default async function npmUser(username) {
 	const url = `https://www.npmjs.com/~${username}`;
 	try {
 		const [profile, email] = await Promise.all([ky(url).text(), npmEmail(username)]);
-		const $ = load(profile);
+		const $ = cheerioLoad(profile);
 
-		const avatar = $('img[src^="/npm-avatar"]')?.attr('src') || undefined;
+		let avatar = $('img[src^="/npm-avatar"]')?.attr('src') || undefined;
+		avatar &&= `https://www.npmjs.com${avatar}`;
+
 		const $sidebar = $('[class^="_73a8e6f0"]');
 
 		return {
