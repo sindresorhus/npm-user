@@ -11,10 +11,12 @@
 		"url": "https://sindresorhus.com"
 	},
 	"type": "module",
-	"exports": "./index.js",
-	"types": "./index.d.ts",
+	"exports": {
+		"types": "./index.d.ts",
+		"default": "./index.js"
+	},
 	"engines": {
-		"node": ">=14.16"
+		"node": ">=18"
 	},
 	"scripts": {
 		"test": "xo && ava && tsd"
@@ -36,13 +38,13 @@
 		"profile"
 	],
 	"dependencies": {
-		"cheerio": "^0.22.0",
-		"got": "^12.5.3",
-		"npm-email": "^4.0.1"
+		"cheerio": "1.0.0-rc.12",
+		"ky": "^1.2.1",
+		"npm-email": "^5.0.0"
 	},
 	"devDependencies": {
-		"ava": "^5.2.0",
-		"tsd": "^0.25.0",
-		"xo": "^0.53.1"
+		"ava": "^6.1.1",
+		"tsd": "^0.30.7",
+		"xo": "^0.57.0"
 	}
 }

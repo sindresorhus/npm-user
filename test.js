@@ -3,23 +3,37 @@ import npmUser from './index.js';
 
 test('user: sindresorhus', async t => {
 	const user = await npmUser('sindresorhus');
-	t.is(user.name, 'Sindre Sorhus');
+
+	t.like(user, {
+		name: 'Sindre Sorhus',
+		email: 'sindresorhus@gmail.com',
+		github: 'sindresorhus',
+		twitter: 'sindresorhus',
+	});
+
 	t.regex(user.avatar, /npm-avatar/);
-	t.is(user.email, 'sindresorhus@gmail.com');
 });
 
 test('user: npm', async t => {
 	const user = await npmUser('npm');
-	t.is(user.name, 'No Problem, Meatbag');
+
+	t.like(user, {
+		name: 'No Problem, Meatbag',
+		email: 'npm@npmjs.com',
+	});
+
 	t.regex(user.avatar, /npm-avatar/);
-	t.is(user.email, 'npm@npmjs.com');
 });
 
 test('user: tj', async t => {
 	const user = await npmUser('tj');
-	t.is(user.name, undefined);
+
+	t.like(user, {
+		name: undefined,
+		email: 'tj@vision-media.ca',
+		github: undefined,
+		twitter: undefined,
+	});
+
 	t.regex(user.avatar, /npm-avatar/);
-	t.is(user.email, 'tj@vision-media.ca');
-	t.is(user.github, undefined);
-	t.is(user.twitter, undefined);
 });
