@@ -39,3 +39,10 @@ test('user: tj', async t => {
 
 	t.regex(user.avatar, avatarRegex);
 });
+
+test('handles non-existent user', async t => {
+	await t.throwsAsync(
+		npmUser('sindresorhus123'),
+		{message: 'User doesn\'t exist'},
+	);
+});

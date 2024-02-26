@@ -25,7 +25,7 @@ export default async function npmUser(username) {
 			twitter: $sidebar.find('a[href^="https://twitter.com/"]').text().slice(1) || undefined,
 		};
 	} catch (error) {
-		if (error.statusCode === 404) {
+		if (error.response.status === 404) {
 			error.message = 'User doesn\'t exist';
 		}
 
