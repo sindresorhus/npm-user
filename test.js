@@ -43,6 +43,6 @@ test('user: tj', async t => {
 test('handles non-existent user', async t => {
 	await t.throwsAsync(
 		npmUser('nnnope'),
-		{message: 'User `nnnope` could not be found', code: 404},
+		{message: 'User `nnnope` could not be found', code: 'ERR_NO_NPM_USER'},
 	);
 });
