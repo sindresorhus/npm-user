@@ -26,7 +26,9 @@ export default async function npmUser(username) {
 		};
 	} catch (error) {
 		if (error.response.status === 404) {
-			error.message = 'User doesn\'t exist';
+			const notFoundError = new Error(`User \`${username}\` could not be found`, {cause: error});
+			notFoundError.code = 'ERR_NO_NPM_USER';
+			throw notFoundError;
 		}
 
 		throw error;
