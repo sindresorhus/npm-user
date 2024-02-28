@@ -25,7 +25,7 @@ export default async function npmUser(username) {
 			twitter: $sidebar.find('a[href^="https://twitter.com/"]').text().slice(1) || undefined,
 		};
 	} catch (error) {
-		if (error.response.status === 404) {
+		if (error?.response?.status === 404) {
 			const notFoundError = new Error(`User \`${username}\` could not be found`, {cause: error});
 			notFoundError.code = 'ERR_NO_NPM_USER';
 			throw notFoundError;
